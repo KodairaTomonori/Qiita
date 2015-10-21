@@ -4,7 +4,7 @@ import MeCab
 import prettytable
 import sys
 
-def make_prettytable(header=None, others):
+def make_prettytable(others, header=[]):
     if not header: header = range(len(list(others)[0]) )
     if len(header) != len(others[0]):
         print('incorrect length!')
@@ -13,11 +13,11 @@ def make_prettytable(header=None, others):
     for other in others: table.add_row(other)
     return table
 
-def make_mecab_info_table(sentence, output_info, \
+def make_mecab_info_table(sentence, output_info=[], \
         mecab_parser=MeCab.Tagger.parse):
     others = list(map(lambda x: x.split(','), \
         mecab_parser(sentence).replace('\t', ',').split('\n') ) )[:-2]
-    return make_prettytable(output_info, others)
+    return make_prettytable(others, output_info)
 
 
 if __name__ == '__main__':
