@@ -1,5 +1,5 @@
 
-def addition(num_a: 'int', num_b: 'int', flag:'bool'=True):
+def addition(num_a: int, num_b: int, flag: bool=True) -> int:
     '''
     この関数は、num_a + num_bを計算して返すプログラムです。
     flagをTrueにすると結果を見やすくprintしてくれます。
